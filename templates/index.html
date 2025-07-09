@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title or "Counting People" }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/bootstrap/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/themify-icons/themify-icons.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/slick/slick.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/slick/slick-theme.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/fancybox/jquery.fancybox.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='plugins/aos/aos.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='images/fav.png') }}">
+
+  <!-- jQuery -->
+  <script src="{{ url_for('static', filename='assets/js/jquery-3.6.1.min.js') }}"></script>
+</head>
+<body data-zone="{{ zone }}">
+  <div class="body-wrapper">
+    <!-- Header -->
+    <div class="p-2 shadow pl-5 pr-5">
+      <div class="row no-gutters">
+        <div class="col-6">
+          <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='images/logo-ip3.png') }}" alt="logo"></a>
+        </div>
+        <div class="col-6 text-right mt-2">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="ti-menu text-center"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav text-center">
+            <li class="nav-item"><a class="nav-link" href="/"><b>Zona Hijau</b></a></li>
+            <li class="nav-item"><a class="nav-link" href="/merah"><b>Zona Merah</b></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Judul -->
+    <div class="container-fluid">
+      <div class="row no-gutters mt-1">
+        <div class="col-12 text-center">
+          <h2 class="font-weight-bold">{{ title or "Counting People" }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Waktu -->
+    <div class="row no-gutters mt-1">
+      <div class="col-12">
+        <div class="card border-success bg-info text-center pt-1">
+          <h4 class="text-white font-weight-bold">
+            <span id="tanggalwaktu"></span> /
+            <span id="jam"></span>:<span id="menit"></span>:<span id="detik"></span> WIB
+          </h4>
+        </div>
+      </div>
+    </div>
+
+    <!-- IN / CURRENT / OUT -->
+    <div class="container-fluid">
+      <div class="row no-gutters p-1">
+        <div class="col-md-4 p-1">
+          <div class="card border-success bg-success text-center">
+            <img src="{{ url_for('static', filename='images/person_white.png') }}" width="100" class="mx-auto d-block">
+            <h2 class="text-white font-weight-bold" id="totalin">0</h2>
+            <h5 class="text-white font-weight-bold">IN</h5>
+          </div>
+        </div>
+        <div class="col-md-4 p-1">
+          <div class="card border-success bg-warning text-center">
+            <img src="{{ url_for('static', filename='images/person_white.png') }}" width="100" class="mx-auto d-block">
+            <h2 class="text-white font-weight-bold" id="totalcur">0</h2>
+            <h5 class="text-white font-weight-bold">CURRENTS</h5>
+          </div>
+        </div>
+        <div class="col-md-4 p-1">
+          <div class="card border-success bg-primary text-center">
+            <img src="{{ url_for('static', filename='images/person_white.png') }}" width="100" class="mx-auto d-block">
+            <h2 class="text-white font-weight-bold" id="totalout">0</h2>
+            <h5 class="text-white font-weight-bold">OUT</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabel -->
+    <div class="container-fluid">
+      <div class="card-body">
+        <div id="offline-alert" class="alert alert-danger text-center" style="display: none;">
+          🔴 Server sedang offline. Data tidak dapat diambil.
+        </div>
+
+        <table class="table table-borderless table-striped text-center bg-cover">
+          <thead>
+            <tr>
+              <th><strong>DEPARTMENT</strong></th>
+              <th><strong>IN</strong></th>
+              <th><strong>OUT</strong></th>
+              <th><strong>CURRENTS</strong></th>
+            </tr>
+          </thead>
+          <tbody id="dept-table">
+            <!-- Diisi oleh JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="{{ url_for('static', filename='js/data.js') }}"></script>
+
+  <!-- JS Plugin -->
+  <script src="{{ url_for('static', filename='plugins/bootstrap/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/slick/slick.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/fancybox/jquery.fancybox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/syotimer/jquery.syotimer.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='plugins/aos/aos.js') }}"></script>
+</body>
+</html>
