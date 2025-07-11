@@ -28,3 +28,5 @@ Endpoint:
 
 *CATATAN
 Untuk semua data yang di butuhkan (access token, url, in device, out device, zona hijau, zona merah, regis) ada di file .env tinggal sesuaikan aja
+
+Jika mau gunakan file exe nya cukup ekstrak file flask-exe.zip lalu update .env nya dan jalankan file counting.exe
