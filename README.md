@@ -6,21 +6,17 @@ install python 3.13 ada di folder PY
 jangan lupa centang “Add Python to PATH”
 
 install requirements.txt
-- python -m venv venv
-- pip install -r requirements.txt
+- pip install --no-index --find-links=offline_packages -r requirements.txt
 
-Masuk Ke Folde nssm-2.24
-masuk ke CMD ketik (nssm install FlaskApp)
+# Start servicenya
+Klik 2x start_app.bat
 
-lalu setting:
-- path : C:\Users\Administrator\AppData\Local\Programs\Python\Python313\python.exe
-- Startup directory : Arahkan ke root folder aplikasi (counting)
-- Arguments : app.py
+# Untuk stop
+Klik 2x stop_app.bat
 
-jika sudah klik okee
+# Untuk restart
+Klik 2x restart_app.bat
 
-untuk menjalankan nya : nssm start FlaskApp
-Untuk menghentikannya : nssm stop FlaskApp
 
 Endpoint:
 - / (zona hijau)

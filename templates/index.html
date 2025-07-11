@@ -24,14 +24,19 @@
     <div class="p-2 shadow pl-5 pr-5">
       <div class="row no-gutters">
         <div class="col-6">
-          <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='images/logo-ip3.png') }}" alt="logo"></a>
+          <a class="navbar-brand" href="#">
+            <img src="{{ url_for('static', filename='images/logo-ip3.png') }}" alt="Logo IP3">
+          </a>
         </div>
-        <div class="col-6 text-right mt-2">
+        <div class="col-6 text-right mt-2 d-lg-none">
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-            <span class="ti-menu text-center"></span>
+            <!-- Ganti ikon sesuai preferensi -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-list" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M2.5 12.5a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm0-4a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11zm0-4a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-11z"/>
+            </svg>
           </button>
         </div>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav text-center">
             <li class="nav-item"><a class="nav-link" href="/"><b>Zona Hijau</b></a></li>
             <li class="nav-item"><a class="nav-link" href="/merah"><b>Zona Merah</b></a></li>
@@ -44,13 +49,13 @@
     <div class="container-fluid">
       <div class="row no-gutters mt-1">
         <div class="col-12 text-center">
-          <h2 class="font-weight-bold">{{ title or "Counting People" }}</h2>
+          <h2 class="font-weight-bold mb-1">{{ title or "Counting People" }}</h2>
         </div>
       </div>
     </div>
 
     <!-- Waktu -->
-    <div class="row no-gutters mt-1">
+    <div class="row no-gutters mt-1 px-2">
       <div class="col-12">
         <div class="card border-success bg-info text-center pt-1">
           <h4 class="text-white font-weight-bold">
@@ -66,23 +71,23 @@
       <div class="row no-gutters p-1">
         <div class="col-md-4 p-1">
           <div class="card border-success bg-success text-center">
-            <img src="{{ url_for('static', filename='images/person_white.png') }}" width="100" class="mx-auto d-block">
+            <img src="{{ url_for('static', filename='images/person_white.png') }}" width="100" class="mx-auto d-block" alt="IN Icon">
             <h2 class="text-white font-weight-bold" id="totalin">0</h2>
-            <h5 class="text-white font-weight-bold">IN</h5>
-          </div>
-        </div>
-        <div class="col-md-4 p-1">
-          <div class="card border-success bg-warning text-center">
-            <img src="{{ url_for('static', filename='images/person_white.png') }}" width="100" class="mx-auto d-block">
-            <h2 class="text-white font-weight-bold" id="totalcur">0</h2>
-            <h5 class="text-white font-weight-bold">CURRENTS</h5>
+            <h5 class="text-white font-weight-bold">MASUK</h5>
           </div>
         </div>
         <div class="col-md-4 p-1">
           <div class="card border-success bg-primary text-center">
-            <img src="{{ url_for('static', filename='images/person_white.png') }}" width="100" class="mx-auto d-block">
+            <img src="{{ url_for('static', filename='images/person_white.png') }}" width="100" class="mx-auto d-block" alt="CURRENT Icon">
+            <h2 class="text-white font-weight-bold" id="totalcur">0</h2>
+            <h5 class="text-white font-weight-bold">DI DALAM</h5>
+          </div>
+        </div>
+        <div class="col-md-4 p-1">
+          <div class="card border-success bg-danger text-center">
+            <img src="{{ url_for('static', filename='images/person_white.png') }}" width="100" class="mx-auto d-block" alt="OUT Icon">
             <h2 class="text-white font-weight-bold" id="totalout">0</h2>
-            <h5 class="text-white font-weight-bold">OUT</h5>
+            <h5 class="text-white font-weight-bold">KELUAR</h5>
           </div>
         </div>
       </div>
@@ -95,19 +100,21 @@
           🔴 Server sedang offline. Data tidak dapat diambil.
         </div>
 
-        <table class="table table-borderless table-striped text-center bg-cover">
-          <thead>
-            <tr>
-              <th><strong>DEPARTMENT</strong></th>
-              <th><strong>IN</strong></th>
-              <th><strong>OUT</strong></th>
-              <th><strong>CURRENTS</strong></th>
-            </tr>
-          </thead>
-          <tbody id="dept-table">
-            <!-- Diisi oleh JS -->
-          </tbody>
-        </table>
+        <div class="table-responsive">
+          <table class="table table-borderless table-striped text-center bg-cover">
+            <thead class="thead-light">
+              <tr class="text-center align-middle">
+                <th scope="col" class="text-center"><strong>DEPARTEMEN</strong></th>
+                <th scope="col" class="text-center"><strong>MASUK</strong></th>
+                <th scope="col" class="text-center"><strong>KELUAR</strong></th>
+                <th scope="col" class="text-center"><strong>DI DALAM</strong></th>
+              </tr>
+            </thead>
+            <tbody id="dept-table">
+              <!-- Diisi oleh JS -->
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

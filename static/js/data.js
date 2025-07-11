@@ -47,6 +47,7 @@ function getData() {
   });
 }
 
+
 function updateClock() {
   const now = new Date();
   const offset = (now.getTimezoneOffset() === 0) ? 7 * 3600000 : 0;
